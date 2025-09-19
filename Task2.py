@@ -31,29 +31,12 @@ with col_left:
         <p style="margin:4px 0 14px 0; color: #6b7280;">
             Open-source contribution sprint • Learn Git • Make your first PR
         </p>
-        <!-- Horizontal Timeline -->
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:20px; max-width:700px;">
-            <div style="text-align:center;">
-                <div style="width:16px; height:16px; background:#4285F4; border-radius:50%; margin:0 auto;"></div>
-                <p style="margin:4px 0 0 0; font-size:0.9rem;">1 Oct</p>
-            </div>
-            <div style="text-align:center;">
-                <div style="width:16px; height:16px; background:#FBBC05; border-radius:50%; margin:0 auto;"></div>
-                <p style="margin:4px 0 0 0; font-size:0.9rem;">R1</p>
-            </div>
-            <div style="text-align:center;">
-                <div style="width:16px; height:16px; background:#34A853; border-radius:50%; margin:0 auto;"></div>
-                <p style="margin:4px 0 0 0; font-size:0.9rem;">R2</p>
-            </div>
-            <div style="text-align:center;">
-                <div style="width:16px; height:16px; background:#EA4335; border-radius:50%; margin:0 auto;"></div>
-                <p style="margin:4px 0 0 0; font-size:0.9rem;">R3</p>
-            </div>
-            <div style="text-align:center;">
-                <div style="width:16px; height:16px; background:#8B5CF6; border-radius:50%; margin:0 auto;"></div>
-                <p style="margin:4px 0 0 0; font-size:0.9rem;">5 Oct</p>
-            </div>
-        </div>
+        <p style="margin:2px 0; color:#1f2937; font-weight:600;">
+            📅 Event Date: 1st October 2025
+        </p>
+        <p style="margin:2px 0; color:#1f2937; font-weight:600;">
+            🏆 Reward Ceremony: 5th October 2025
+        </p>
         """,
         unsafe_allow_html=True
     )
@@ -296,6 +279,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

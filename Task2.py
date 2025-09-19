@@ -8,86 +8,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from google.oauth2.service_account import Credentials
 
 st.set_page_config(page_title="Hacktoberfest @ GDG Galgotias", layout="wide", initial_sidebar_state="collapsed")
-st.markdown(
-    """
-    <style>
-    /* keep gradient title untouched (explicit exclusion) */
-    h1[style*="background: linear-gradient"] { color: inherit !important; -webkit-background-clip: text; }
 
-    /* general class we will attach to form/widget labels */
-    .gdg-form-label {
-      font-weight: 600;
-      transition: color .12s ease;
-    }
-
-    /* theme-aware colors (applies when class exists on labels) */
-    [data-theme="light"] .gdg-form-label { color: #111827 !important; } /* dark gray on light bg */
-    [data-theme="dark"]  .gdg-form-label { color: #ffffff !important; } /* white on dark bg */
-    </style>
-
-    <script>
-    (function(){
-      // Apply class to labels inside forms and to Streamlit widget labels
-      function tagLabels() {
-        try {
-          // Select labels commonly used by Streamlit widgets (and form labels)
-          const selectors = [
-            'form label',                  // labels inside <form> (st.form)
-            '.stTextInput label',          // text inputs
-            '.stTextArea label',           // textarea (if any)
-            '.stSelectbox label',          // selectbox
-            '.stRadio label',              // radio
-            '.stCheckbox label',           // checkbox labels (if present)
-            '.stFileUploader label'        // file uploader
-          ].join(',');
-          const labels = document.querySelectorAll(selectors);
-          labels.forEach(l => {
-            if (!l.classList.contains('gdg-form-label')) {
-              l.classList.add('gdg-form-label');
-            }
-          });
-        } catch(e) { /* ignore */ }
-      }
-
-      // Also directly set inline styles as a robust fallback
-      function applyInlineColors() {
-        try {
-          const dark = document.documentElement.getAttribute('data-theme') === 'dark';
-          const color = dark ? '#ffffff' : '#111827';
-          const selectors = [
-            'form label',
-            '.stTextInput label',
-            '.stTextArea label',
-            '.stSelectbox label',
-            '.stRadio label',
-            '.stCheckbox label',
-            '.stFileUploader label'
-          ].join(',');
-          document.querySelectorAll(selectors).forEach(l => {
-            l.style.color = color;
-            l.style.fontWeight = '600';
-          });
-        } catch(e) { /* ignore */ }
-      }
-
-      // Run immediately and whenever DOM changes or theme attribute toggles
-      function runAll() { tagLabels(); applyInlineColors(); }
-
-      runAll();
-
-      const mo = new MutationObserver((mutations) => {
-        // small filter: re-run when children added or attribute changes (Streamlit re-renders)
-        runAll();
-      });
-      mo.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
-
-      // periodic re-apply as extra insurance
-      setInterval(runAll, 800);
-    })();
-    </script>
-    """,
-    unsafe_allow_html=True,
-)
 
 
 # -------------------------
@@ -356,6 +277,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

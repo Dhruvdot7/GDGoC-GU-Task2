@@ -3,7 +3,6 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 import os
-import base64
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from google.oauth2.service_account import Credentials
@@ -17,11 +16,6 @@ if "dark_mode" not in st.session_state:
     st.session_state["dark_mode"] = False
 
 # Top bar: Title (left) + small theme toggle button (right)
-logo_path = r"D:\GDGoC\gdglogo.png"
-logo_base64 = ""
-if os.path.exists(logo_path):
-    with open(logo_path, "rb") as f:
-        logo_base64 = base64.b64encode(f.read()).decode()
 
 col_left, col_right = st.columns([9, 1])
 with col_left:
@@ -30,7 +24,7 @@ with col_left:
     <h1 style="margin:0; font-family: 'Segoe UI', sans-serif;
                background: linear-gradient(90deg,#4285F4,#34A853,#FBBC05,#EA4335);
                -webkit-background-clip: text; color: transparent; font-size:2.4rem;">
-        <img src="data:image/png;base64,{logo_base64}" width="50" style="vertical-align:middle; margin-right:8px;">
+        <img src="https://github.com/Dhruvdot7/GDGoC-GU-Task2/blob/69d26a11e6795c3e601face4a941e91c0dc2769c/gdglogo.png,{logo_base64}" width="50" style="vertical-align:middle; margin-right:8px;">
         Hacktoberfest @ GDG Galgotias
     </h1>
     <p style="margin:4px 0 14px 0; color: #6b7280;">Open-source contribution sprint • Learn Git • Make your first PR</p>
@@ -276,3 +270,4 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+

@@ -179,33 +179,55 @@ st.write("---")
 # Registration Form
 # -------------------------
 
+# ---------- Force-style the form submit button (place AFTER the form) ----------
 st.markdown(
     """
-    <style>
-    /* Target all primary buttons inside forms */
-    div.stForm button[kind="primary"] {
-        background-color: #34A853 !important;  /* Google Green */
-        color: white !important;
-        font-weight: 600 !important;
-        border: none !important;
-        border-radius: 8px !important;
-        padding: 0.6rem 1.2rem !important;
-        transition: all 0.3s ease-in-out !important;
-    }
+    <script>
+    (function() {
+      function styleRegisterButton() {
+        try {
+          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          const bg = '#34A853';
+          const hoverBg = '#2c8c47';
+          const txtColor = '#ffffff';
+          const boxShadow = isDark ? '0 6px 14px rgba(0,0,0,0.6)' : '0 6px 14px rgba(0,0,0,0.12)';
 
-    div.stForm button[kind="primary"]:hover {
-        background-color: #2c8c47 !important;  /* Darker green */
-        transform: scale(1.05);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        cursor: pointer;
-    }
+          document.querySelectorAll('button, input[type="submit"]').forEach(btn => {
+            const text = (btn.innerText || btn.value || '').trim().toLowerCase();
+            // match exact "register" or buttons containing the word register
+            if (text === 'register' || text.includes('register')) {
+              // apply inline styles with !important
+              btn.style.setProperty('background-color', bg, 'important');
+              btn.style.setProperty('color', txtColor, 'important');
+              btn.style.setProperty('font-weight', '600', 'important');
+              btn.style.setProperty('border', 'none', 'important');
+              btn.style.setProperty('border-radius', '8px', 'important');
+              btn.style.setProperty('padding', '0.55rem 1rem', 'important');
+              btn.style.setProperty('box-shadow', boxShadow, 'important');
+              btn.style.setProperty('transition', 'transform .12s ease, box-shadow .12s ease', 'important');
 
-    div.stForm button[kind="primary"]:disabled {
-        background-color: #999 !important;
-        color: #eee !important;
-        cursor: not-allowed !important;
-    }
-    </style>
+              // attach hover effect (some elements don't accept :hover via CSS injection reliably)
+              btn.onmouseenter = () => btn.style.setProperty('background-color', hoverBg, 'important');
+              btn.onmouseleave = () => btn.style.setProperty('background-color', bg, 'important');
+            }
+          });
+        } catch (e) {
+          console && console.log && console.log('styleRegisterButton error', e);
+        }
+      }
+
+      // Initial attempt
+      styleRegisterButton();
+
+      // Re-apply when DOM changes or theme attribute toggles
+      const mo = new MutationObserver(styleRegisterButton);
+      mo.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
+
+      // Extra safety: apply on load and at intervals
+      window.addEventListener('load', styleRegisterButton);
+      setInterval(styleRegisterButton, 900);
+    })();
+    </script>
     """,
     unsafe_allow_html=True
 )
@@ -322,6 +344,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

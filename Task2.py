@@ -31,6 +31,37 @@ with col_left:
         <p style="margin:4px 0 14px 0; color: #6b7280;">
             Open-source contribution sprint • Learn Git • Make your first PR
         </p>
+         <!-- Timeline -->
+        <div style="position:relative; padding-left:20px; border-left:2px solid #ccc; margin-top:10px;">
+            <!-- Event Date -->
+            <div style="position:relative; margin-bottom:20px;">
+                <div style="position:absolute; left:-9px; width:16px; height:16px; background:#4285F4; border-radius:50%;"></div>
+                <p style="margin:0; font-weight:600; color:#1f2937;">📅 Event Date: 1st October 2025</p>
+            </div>
+            
+            <!-- Round 1 -->
+            <div style="position:relative; margin-bottom:20px;">
+                <div style="position:absolute; left:-9px; width:16px; height:16px; background:#FBBC05; border-radius:50%;"></div>
+                <p style="margin:0; font-weight:600; color:#1f2937;">🔹 Round 1: Introduction & Setup</p>
+            </div>
+
+            <!-- Round 2 -->
+            <div style="position:relative; margin-bottom:20px;">
+                <div style="position:absolute; left:-9px; width:16px; height:16px; background:#34A853; border-radius:50%;"></div>
+                <p style="margin:0; font-weight:600; color:#1f2937;">🔹 Round 2: Hands-on Contribution</p>
+            </div>
+
+            <!-- Round 3 -->
+            <div style="position:relative; margin-bottom:20px;">
+                <div style="position:absolute; left:-9px; width:16px; height:16px; background:#EA4335; border-radius:50%;"></div>
+                <p style="margin:0; font-weight:600; color:#1f2937;">🔹 Round 3: PR Review & Feedback</p>
+            </div>
+
+            <!-- Reward Ceremony -->
+            <div style="position:relative; margin-bottom:20px;">
+                <div style="position:absolute; left:-9px; width:16px; height:16px; background:#8B5CF6; border-radius:50%;"></div>
+                <p style="margin:0; font-weight:600; color:#1f2937;">🏆 Reward Ceremony: 5th October 2025</p>
+            </div>
         """,
         unsafe_allow_html=True
     )
@@ -273,6 +304,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

@@ -8,6 +8,28 @@ from oauth2client.service_account import ServiceAccountCredentials
 from google.oauth2.service_account import Credentials
 
 st.set_page_config(page_title="Hacktoberfest @ GDG Galgotias", layout="wide", initial_sidebar_state="collapsed")
+st.markdown(
+    """
+    <style>
+    /* Default (light) theme */
+    [data-testid="stTextInput"] p,
+    [data-testid="stSelectbox"] p,
+    [data-testid="stTextArea"] p {
+        color: #111827 !important; /* dark gray on light */
+        font-weight: 600 !important;
+    }
+
+    /* Dark theme override */
+    [data-theme="dark"] [data-testid="stTextInput"] p,
+    [data-theme="dark"] [data-testid="stSelectbox"] p,
+    [data-theme="dark"] [data-testid="stTextArea"] p {
+        color: #ffffff !important; /* white on dark */
+        font-weight: 600 !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 
@@ -277,6 +299,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

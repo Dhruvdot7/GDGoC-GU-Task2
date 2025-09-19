@@ -194,15 +194,7 @@ client = gspread.authorize(creds)
 sheet = client.open("Hacktoberfest Registrations").sheet1
 
 with st.form("registration_form"):
-    name = st.text_input("Full Name")
-    email = st.text_input("Email")
-    college = st.text_input("College / Organization")
-    interest = st.selectbox("Interest Area", ["Open Source", "Docs & Community", "Frontend", "Backend", "DevOps", "Other"])
-    submitted = st.form_submit_button("Register")
-    
-    if submitted:
-                # ---------- Replace native form submit with a custom green button ----------
-        st.markdown(
+    st.markdown(
             """
             <script>
             (function(){
@@ -284,8 +276,14 @@ with st.form("registration_form"):
             """,
             unsafe_allow_html=True,
         )
-        # ---------- end replacement ----------
-
+      
+    name = st.text_input("Full Name")
+    email = st.text_input("Email")
+    college = st.text_input("College / Organization")
+    interest = st.selectbox("Interest Area", ["Open Source", "Docs & Community", "Frontend", "Backend", "DevOps", "Other"])
+    submitted = st.form_submit_button("Register")
+    
+    if submitted:
         if not (name and email and college):
             st.error("Please fill in Name, Email and College/Organization.")
         else:
@@ -376,6 +374,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

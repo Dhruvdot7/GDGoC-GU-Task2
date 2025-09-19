@@ -179,6 +179,36 @@ st.write("---")
 # Registration Form
 # -------------------------
 st.subheader("📝 Register for Hacktoberfest (GDG Galgotias)")
+st.markdown(
+    """
+    <style>
+    div.stButton > button:first-child {
+        background-color: #34A853; /* Google Green */
+        color: white !important;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        padding: 0.6rem 1.2rem;
+        transition: 0.3s;
+    }
+
+    div.stButton > button:first-child:hover {
+        background-color: #2c8c47; /* Darker green on hover */
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        cursor: pointer;
+    }
+
+    div.stButton > button:first-child:disabled {
+        background-color: #999 !important;
+        color: #eee !important;
+        cursor: not-allowed;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Google Sheets Setup
 # Define scope
 scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
@@ -210,40 +240,6 @@ with st.form("registration_form"):
                 st.info(f"📧 Confirmation email simulated to {email}")
             except Exception as e:
                 st.error(f"⚠️ Could not save registration: {e}")
-
-
-            st.markdown(
-                """
-                <style>
-                /* Style only the Register button */
-                div.stButton > button:first-child {
-                    background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335);
-                    color: white !important;
-                    font-weight: 600;
-                    border: none;
-                    border-radius: 8px;
-                    padding: 0.6rem 1.2rem;
-                    transition: 0.3s;
-                }
-            
-                /* Hover effect */
-                div.stButton > button:first-child:hover {
-                    transform: scale(1.05);
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-                    cursor: pointer;
-                }
-            
-                /* Disabled state */
-                div.stButton > button:first-child:disabled {
-                    background: #999 !important;
-                    color: #eee !important;
-                    cursor: not-allowed;
-                }
-                </style>
-                """,
-                unsafe_allow_html=True
-            )
-
 
 # -------------------------
 # Event Schedule
@@ -323,6 +319,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

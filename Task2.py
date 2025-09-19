@@ -213,6 +213,40 @@ with st.form("registration_form"):
             except Exception as e:
                 st.error(f"⚠️ Could not save registration: {e}")
 
+
+st.markdown(
+    """
+    <style>
+    /* Style only the Register button */
+    div.stButton > button:first-child {
+        background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335);
+        color: white !important;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        padding: 0.6rem 1.2rem;
+        transition: 0.3s;
+    }
+
+    /* Hover effect */
+    div.stButton > button:first-child:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        cursor: pointer;
+    }
+
+    /* Disabled state */
+    div.stButton > button:first-child:disabled {
+        background: #999 !important;
+        color: #eee !important;
+        cursor: not-allowed;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 # -------------------------
 # Event Schedule
 # -------------------------
@@ -291,6 +325,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

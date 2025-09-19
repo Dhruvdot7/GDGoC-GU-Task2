@@ -198,25 +198,25 @@ with st.form("registration_form"):
     email = st.text_input("Email")
     college = st.text_input("College / Organization")
     interest = st.selectbox("Interest Area", ["Open Source", "Docs & Community", "Frontend", "Backend", "DevOps", "Other"])
-    submitted = st.form_submit_button("Register")
+    button_container = st.container()
+    submitted = button_container.form_submit_button("Register")
     st.markdown("""
     <style>
-    /* Target the register button (you can make it more specific if needed) */
-    div.stButton > button:first-child {
-        background-color: #28a745;  /* Green color */
-        color: white;
+    /* Make only the register button green */
+    div.stForm div.stButton > button {
+        background-color: #28a745 !important;
+        color: white !important;
         font-weight: bold;
         border-radius: 8px;
         height: 40px;
-        width: 150px;
+        width: 180px;
     }
-div.stButton > button:hover {
-    background-color: #218838;  /* Darker green on hover */
+div.stForm div.stButton > button:hover {
+    background-color: #218838 !important;
 }
 </style>
 """, unsafe_allow_html=True)
 
-    
     if submitted:
         if not (name and email and college):
             st.error("Please fill in Name, Email and College/Organization.")
@@ -308,6 +308,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

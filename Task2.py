@@ -25,7 +25,7 @@ with col_left:
                    background: linear-gradient(90deg,#4285F4,#34A853,#FBBC05,#EA4335);
                    -webkit-background-clip: text; color: transparent; font-size:2.4rem;">
             <img src="https://raw.githubusercontent.com/Dhruvdot7/GDGoC-GU-Task2/main/gdglogo.png" 
-                 width="50" style="vertical-align:middle; margin-right:8px;">
+                 width="60" style="vertical-align:middle; margin-right:8px;">
             Hacktoberfest @ GDG Galgotias
         </h1>
         <p style="margin:4px 0 14px 0; color: #6b7280;">
@@ -273,6 +273,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

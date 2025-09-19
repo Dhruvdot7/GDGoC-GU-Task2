@@ -11,7 +11,7 @@ st.set_page_config(page_title="Hacktoberfest @ GDG Galgotias", layout="wide", in
 st.markdown(
     """
     <style>
-    /* Fix for form input labels */
+    /* Input field labels */
     .stTextInput label, .stSelectbox label {
         color: black !important; /* Light theme */
         font-weight: 500;
@@ -21,8 +21,21 @@ st.markdown(
         color: white !important; /* Dark theme */
     }
 
-    /* Event info text */
+    /* Input box text color fix */
+    .stTextInput input, .stSelectbox div {
+        color: black !important; /* Light theme text */
+    }
+    [data-theme="dark"] .stTextInput input,
+    [data-theme="dark"] .stSelectbox div {
+        color: white !important; /* Dark theme text */
+        background-color: #262730 !important; /* Dark background */
+    }
+
+    /* Event info (date + ceremony) */
     .event-info {
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 4px 0;
         color: black; /* Light theme */
     }
     [data-theme="dark"] .event-info {
@@ -32,7 +45,6 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
 
 # -------------------------
 # Theme state (persistent)
@@ -304,6 +316,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

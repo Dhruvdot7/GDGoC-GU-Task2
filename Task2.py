@@ -11,25 +11,17 @@ st.set_page_config(page_title="Hacktoberfest @ GDG Galgotias", layout="wide", in
 st.markdown(
     """
     <style>
-    /* Default (light) theme */
-    [data-testid="stTextInput"] p,
-    [data-testid="stSelectbox"] p,
-    [data-testid="stTextArea"] p {
-        color: #111827 !important; /* dark gray on light */
-        font-weight: 600 !important;
-    }
-
-    /* Dark theme override */
-    [data-theme="dark"] [data-testid="stTextInput"] p,
-    [data-theme="dark"] [data-testid="stSelectbox"] p,
-    [data-theme="dark"] [data-testid="stTextArea"] p {
-        color: #ffffff !important; /* white on dark */
-        font-weight: 600 !important;
+    /* Make only widget labels follow theme text color */
+    [data-testid="stTextInput"] label,
+    [data-testid="stSelectbox"] label {
+        color: var(--text-color) !important;
+        font-weight: 600;
     }
     </style>
     """,
-    unsafe_allow_html=True,
+    unsafe_allow_html=True
 )
+
 
 
 
@@ -299,6 +291,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

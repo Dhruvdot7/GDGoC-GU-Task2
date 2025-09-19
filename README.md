@@ -4,6 +4,9 @@ A simple **Streamlit web app** for managing Hacktoberfest registrations.
 This app allows users to register with their details and stores the data directly in **Google Sheets**.  
 
 ---
+##🔔IMPORTANT NOTE 
+- The project is live! You can check it out directly by visiting this link in any browser: https://gdgoc-gu-task2.streamlit.app/
+---
 
 ## 🚀 Features
 - ✅ Streamlit-based registration form  

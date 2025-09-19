@@ -11,17 +11,22 @@ st.set_page_config(page_title="Hacktoberfest @ GDG Galgotias", layout="wide", in
 st.markdown(
     """
     <style>
-    /* Make text adapt automatically to Streamlit theme */
-    p, label, span, div, h1, h2, h3, h4, h5, h6 {
-        color: var(--text-color) !important;
+    /* Fix for form input labels */
+    .stTextInput label, .stSelectbox label {
+        color: black !important; /* Light theme */
+        font-weight: 500;
+    }
+    [data-theme="dark"] .stTextInput label,
+    [data-theme="dark"] .stSelectbox label {
+        color: white !important; /* Dark theme */
     }
 
-    /* Define theme-aware variables */
-    :root {
-        --text-color: black;
+    /* Event info text */
+    .event-info {
+        color: black; /* Light theme */
     }
-    [data-theme="dark"] {
-        --text-color: white;
+    [data-theme="dark"] .event-info {
+        color: white; /* Dark theme */
     }
     </style>
     """,
@@ -299,6 +304,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

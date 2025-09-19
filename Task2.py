@@ -201,7 +201,7 @@ with st.form("registration_form"):
     submitted = st.form_submit_button("Register")
     st.markdown("""
     <style>
-    /* Target the first button (you can make it more specific if needed) */
+    /* Target the register button (you can make it more specific if needed) */
     div.stButton > button:first-child {
         background-color: #28a745;  /* Green color */
         color: white;
@@ -308,6 +308,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

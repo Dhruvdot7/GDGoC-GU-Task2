@@ -179,59 +179,6 @@ st.write("---")
 # Registration Form
 # -------------------------
 
-# ---------- Force-style the form submit button (place AFTER the form) ----------
-st.markdown(
-    """
-    <script>
-    (function() {
-      function styleRegisterButton() {
-        try {
-          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-          const bg = '#34A853';
-          const hoverBg = '#2c8c47';
-          const txtColor = '#ffffff';
-          const boxShadow = isDark ? '0 6px 14px rgba(0,0,0,0.6)' : '0 6px 14px rgba(0,0,0,0.12)';
-
-          document.querySelectorAll('button, input[type="submit"]').forEach(btn => {
-            const text = (btn.innerText || btn.value || '').trim().toLowerCase();
-            // match exact "register" or buttons containing the word register
-            if (text === 'register' || text.includes('register')) {
-              // apply inline styles with !important
-              btn.style.setProperty('background-color', bg, 'important');
-              btn.style.setProperty('color', txtColor, 'important');
-              btn.style.setProperty('font-weight', '600', 'important');
-              btn.style.setProperty('border', 'none', 'important');
-              btn.style.setProperty('border-radius', '8px', 'important');
-              btn.style.setProperty('padding', '0.55rem 1rem', 'important');
-              btn.style.setProperty('box-shadow', boxShadow, 'important');
-              btn.style.setProperty('transition', 'transform .12s ease, box-shadow .12s ease', 'important');
-
-              // attach hover effect (some elements don't accept :hover via CSS injection reliably)
-              btn.onmouseenter = () => btn.style.setProperty('background-color', hoverBg, 'important');
-              btn.onmouseleave = () => btn.style.setProperty('background-color', bg, 'important');
-            }
-          });
-        } catch (e) {
-          console && console.log && console.log('styleRegisterButton error', e);
-        }
-      }
-
-      // Initial attempt
-      styleRegisterButton();
-
-      // Re-apply when DOM changes or theme attribute toggles
-      const mo = new MutationObserver(styleRegisterButton);
-      mo.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
-
-      // Extra safety: apply on load and at intervals
-      window.addEventListener('load', styleRegisterButton);
-      setInterval(styleRegisterButton, 900);
-    })();
-    </script>
-    """,
-    unsafe_allow_html=True
-)
-
 st.subheader("📝 Register for Hacktoberfest (GDG Galgotias)")
 
 # Google Sheets Setup
@@ -254,6 +201,91 @@ with st.form("registration_form"):
     submitted = st.form_submit_button("Register")
     
     if submitted:
+                # ---------- Replace native form submit with a custom green button ----------
+        st.markdown(
+            """
+            <script>
+            (function(){
+              function installCustomRegisterBtn() {
+                try {
+                  // find all forms
+                  document.querySelectorAll('form').forEach(form => {
+                    // skip if already patched
+                    if (form.__gdg_replaced) return;
+        
+                    // try to find native submit inside the form
+                    const native = form.querySelector('button[type="submit"], input[type="submit"]');
+                    if (!native) return;
+        
+                    // keep the native button in the DOM but hide it visually (so Streamlit still hooks it)
+                    native.style.position = 'absolute';
+                    native.style.left = '-9999px';
+                    native.style.opacity = '0';
+                    native.style.pointerEvents = 'none';
+        
+                    // create our replacement button only once
+                    if (!form.querySelector('.gdg-replace-submit')) {
+                      const btn = document.createElement('button');
+                      btn.className = 'gdg-replace-submit';
+                      // text fallback from native button
+                      btn.innerText = (native.innerText || native.value || 'Register').trim();
+                      btn.type = 'button';
+        
+                      // inline styles for button (green)
+                      Object.assign(btn.style, {
+                        backgroundColor: '#34A853',
+                        color: '#ffffff',
+                        fontWeight: '600',
+                        border: 'none',
+                        borderRadius: '8px',
+                        padding: '0.50rem 0.95rem',
+                        boxShadow: '0 6px 14px rgba(0,0,0,0.12)',
+                        cursor: 'pointer',
+                        marginTop: '8px',
+                        display: 'inline-block'
+                      });
+        
+                      // hover effect
+                      btn.addEventListener('mouseenter', () => btn.style.backgroundColor = '#2c8c47');
+                      btn.addEventListener('mouseleave', () => btn.style.backgroundColor = '#34A853');
+        
+                      // click forwards to native submit
+                      btn.addEventListener('click', () => {
+                        try {
+                          // trigger click on native submit
+                          native.click();
+                        } catch(e) {
+                          // fallback: dispatch a submit event on the form
+                          const evt = new Event('submit', { bubbles: true, cancelable: true });
+                          form.dispatchEvent(evt);
+                        }
+                      });
+        
+                      // place our button just after the native button
+                      native.parentNode.insertBefore(btn, native.nextSibling);
+                    }
+        
+                    form.__gdg_replaced = true;
+                  });
+                } catch (e) {
+                  console && console.log && console.log('installCustomRegisterBtn error', e);
+                }
+              }
+        
+              // initial install + observe DOM changes (Streamlit re-renders widgets often)
+              installCustomRegisterBtn();
+              const mo = new MutationObserver(installCustomRegisterBtn);
+              mo.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
+        
+              // periodic attempt as extra safety
+              setInterval(installCustomRegisterBtn, 900);
+            })();
+            </script>
+            """,
+            unsafe_allow_html=True,
+        )
+        # ---------- end replacement ----------
+
         if not (name and email and college):
             st.error("Please fill in Name, Email and College/Organization.")
         else:
@@ -344,6 +376,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

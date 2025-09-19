@@ -10,11 +10,17 @@ from google.oauth2.service_account import Credentials
 st.markdown(
     """
     <style>
-    html, body, [class*="css"]  {
-        font-family: 'Segoe UI', sans-serif !important;
+    /* Make text adapt automatically to Streamlit theme */
+    p, label, span, div, h1, h2, h3, h4, h5, h6 {
+        color: var(--text-color) !important;
     }
-    p, label, span, div {
-        font-family: 'Segoe UI', sans-serif !important;
+
+    /* Define theme-aware variables */
+    :root {
+        --text-color: black;
+    }
+    [data-theme="dark"] {
+        --text-color: white;
     }
     </style>
     """,
@@ -293,6 +299,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

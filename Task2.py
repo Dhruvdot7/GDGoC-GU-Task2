@@ -182,32 +182,34 @@ st.subheader("📝 Register for Hacktoberfest (GDG Galgotias)")
 st.markdown(
     """
     <style>
-    div.stButton > button:first-child {
-        background-color: #34A853; /* Google Green */
+    /* Target only form submit button */
+    div.stForm button[type="submit"] {
+        background-color: #34A853 !important; /* Google Green */
         color: white !important;
-        font-weight: 600;
-        border: none;
-        border-radius: 8px;
-        padding: 0.6rem 1.2rem;
-        transition: 0.3s;
+        font-weight: 600 !important;
+        border: none !important;
+        border-radius: 8px !important;
+        padding: 0.6rem 1.2rem !important;
+        transition: 0.3s !important;
     }
 
-    div.stButton > button:first-child:hover {
-        background-color: #2c8c47; /* Darker green on hover */
+    div.stForm button[type="submit"]:hover {
+        background-color: #2c8c47 !important; /* Darker green */
         transform: scale(1.05);
         box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         cursor: pointer;
     }
 
-    div.stButton > button:first-child:disabled {
+    div.stForm button[type="submit"]:disabled {
         background-color: #999 !important;
         color: #eee !important;
-        cursor: not-allowed;
+        cursor: not-allowed !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 # Google Sheets Setup
 # Define scope
@@ -319,6 +321,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

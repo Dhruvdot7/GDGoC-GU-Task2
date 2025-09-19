@@ -8,6 +8,17 @@ from oauth2client.service_account import ServiceAccountCredentials
 from google.oauth2.service_account import Credentials
 
 st.set_page_config(page_title="Hacktoberfest @ GDG Galgotias", layout="wide", initial_sidebar_state="collapsed")
+st.markdown(
+    """
+    <style>
+    * {
+        font-family: 'Segoe UI', sans-serif !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 
 # -------------------------
 # Theme state (persistent)
@@ -279,6 +290,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

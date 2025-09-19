@@ -11,40 +11,49 @@ st.set_page_config(page_title="Hacktoberfest @ GDG Galgotias", layout="wide", in
 st.markdown(
     """
     <style>
-    /* Input field labels */
+    /* ---------- Form Labels ---------- */
     .stTextInput label, .stSelectbox label {
-        color: black !important; /* Light theme */
         font-weight: 500;
+    }
+    [data-theme="light"] .stTextInput label,
+    [data-theme="light"] .stSelectbox label {
+        color: #111827 !important; /* dark gray in light theme */
     }
     [data-theme="dark"] .stTextInput label,
     [data-theme="dark"] .stSelectbox label {
-        color: white !important; /* Dark theme */
+        color: #ffffff !important; /* white in dark theme */
     }
 
-    /* Input box text color fix */
-    .stTextInput input, .stSelectbox div {
-        color: black !important; /* Light theme text */
+    /* ---------- Input Text & Background ---------- */
+    .stTextInput input, .stSelectbox div[role="combobox"] {
+        border-radius: 6px;
+    }
+    [data-theme="light"] .stTextInput input,
+    [data-theme="light"] .stSelectbox div[role="combobox"] {
+        color: #111827 !important;
+        background-color: #ffffff !important;
+        border: 1px solid #d1d5db !important;
     }
     [data-theme="dark"] .stTextInput input,
-    [data-theme="dark"] .stSelectbox div {
-        color: white !important; /* Dark theme text */
-        background-color: #262730 !important; /* Dark background */
+    [data-theme="dark"] .stSelectbox div[role="combobox"] {
+        color: #ffffff !important;
+        background-color: #262730 !important;
+        border: 1px solid #3a3f4b !important;
     }
 
-    /* Event info (date + ceremony) */
+    /* ---------- Event Info Lines ---------- */
     .event-info {
         font-size: 1rem;
-        font-weight: 500;
-        margin: 4px 0;
-        color: black; /* Light theme */
+        font-weight: 600;
+        margin: 2px 0;
     }
-    [data-theme="dark"] .event-info {
-        color: white; /* Dark theme */
-    }
+    [data-theme="light"] .event-info { color: #1f2937 !important; }
+    [data-theme="dark"] .event-info { color: #ffffff !important; }
     </style>
     """,
-    unsafe_allow_html=True
+    unsafe_allow_html=True,
 )
+
 
 # -------------------------
 # Theme state (persistent)
@@ -68,12 +77,8 @@ with col_left:
         <p style="margin:4px 0 14px 0; color: #6b7280;">
             Open-source contribution sprint • Learn Git • Make your first PR
         </p>
-        <p style="margin:2px 0; color:#1f2937; font-weight:600;">
-            📅 Event Date: 1st October 2025
-        </p>
-        <p style="margin:2px 0; color:#1f2937; font-weight:600;">
-            🏆 Reward Ceremony: 5th October 2025
-        </p>
+        <p class="event-info">📅 Event Date: 1st October 2025</p>
+        <p class="event-info">🏆 Reward Ceremony: 5th October 2025</p>
         """,
         unsafe_allow_html=True
     )
@@ -316,6 +321,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

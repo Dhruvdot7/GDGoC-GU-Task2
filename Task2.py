@@ -20,17 +20,20 @@ if "dark_mode" not in st.session_state:
 col_left, col_right = st.columns([9, 1])
 with col_left:
     st.markdown(
-    f"""
-    <h1 style="margin:0; font-family: 'Segoe UI', sans-serif;
-               background: linear-gradient(90deg,#4285F4,#34A853,#FBBC05,#EA4335);
-               -webkit-background-clip: text; color: transparent; font-size:2.4rem;">
-        <img src="https://github.com/Dhruvdot7/GDGoC-GU-Task2/blob/main/gdglogo.png" width="50" style="vertical-align:middle; margin-right:8px;">
-        Hacktoberfest @ GDG Galgotias
-    </h1>
-    <p style="margin:4px 0 14px 0; color: #6b7280;">Open-source contribution sprint • Learn Git • Make your first PR</p>
-    """,
-    unsafe_allow_html=True,
-)
+        f"""
+        <h1 style="margin:0; font-family: 'Segoe UI', sans-serif;
+                   background: linear-gradient(90deg,#4285F4,#34A853,#FBBC05,#EA4335);
+                   -webkit-background-clip: text; color: transparent; font-size:2.4rem;">
+            <img src="https://raw.githubusercontent.com/Dhruvdot7/GDGoC-GU-Task2/main/gdglogo.png" 
+                 width="50" style="vertical-align:middle; margin-right:8px;">
+            Hacktoberfest @ GDG Galgotias
+        </h1>
+        <p style="margin:4px 0 14px 0; color: #6b7280;">
+            Open-source contribution sprint • Learn Git • Make your first PR
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
 
 with col_right:
     btn_label = "🌙" if not st.session_state["dark_mode"] else "🌞"
@@ -270,6 +273,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

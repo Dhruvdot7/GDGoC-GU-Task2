@@ -216,7 +216,7 @@ with st.form("registration_form"):
 # Event Schedule
 # -------------------------
 
-st.subheader("📅 Event Schedule")
+st.subheader("📅 Event Schedule (Same for every round)")
 st.markdown( 
     """ 
     <style>
@@ -290,6 +290,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

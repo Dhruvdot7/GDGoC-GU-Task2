@@ -162,7 +162,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.markdown(f"<div style='text-align:center; margin-top:10px;'><b style='color:{card_text}'>✨ GDGOC Head: Vanshika Prakash</b></div>", unsafe_allow_html=True)
+st.markdown(f"<div style='text-align:center; margin-top:10px;'><b style='color:{card_text}'>✨ GDGOC Organizer: Vanshika Prakash</b></div>", unsafe_allow_html=True)
 st.write("---")
 
 # -------------------------
@@ -279,6 +279,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

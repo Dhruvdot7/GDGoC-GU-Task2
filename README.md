@@ -98,16 +98,6 @@ Open [http://localhost:8501](http://localhost:8501) in your browser.
 
 ---
 
-## 📷 Screenshot
-![Hacktoberfest Logo](logo.png)  
-
----
-
-## 📜 License
-This project is licensed under the MIT License.  
-
----
-
 ## 🙌 Acknowledgements
 - [Streamlit](https://streamlit.io/)  
 - [gspread](https://github.com/burnash/gspread)  

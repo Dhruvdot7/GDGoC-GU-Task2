@@ -194,94 +194,28 @@ client = gspread.authorize(creds)
 sheet = client.open("Hacktoberfest Registrations").sheet1
 
 with st.form("registration_form"):
-    st.markdown(
-            """
-            <script>
-            (function(){
-              function installCustomRegisterBtn() {
-                try {
-                  // find all forms
-                  document.querySelectorAll('form').forEach(form => {
-                    // skip if already patched
-                    if (form.__gdg_replaced) return;
-        
-                    // try to find native submit inside the form
-                    const native = form.querySelector('button[type="submit"], input[type="submit"]');
-                    if (!native) return;
-        
-                    // keep the native button in the DOM but hide it visually (so Streamlit still hooks it)
-                    native.style.position = 'absolute';
-                    native.style.left = '-9999px';
-                    native.style.opacity = '0';
-                    native.style.pointerEvents = 'none';
-        
-                    // create our replacement button only once
-                    if (!form.querySelector('.gdg-replace-submit')) {
-                      const btn = document.createElement('button');
-                      btn.className = 'gdg-replace-submit';
-                      // text fallback from native button
-                      btn.innerText = (native.innerText || native.value || 'Register').trim();
-                      btn.type = 'button';
-        
-                      // inline styles for button (green)
-                      Object.assign(btn.style, {
-                        backgroundColor: '#34A853',
-                        color: '#ffffff',
-                        fontWeight: '600',
-                        border: 'none',
-                        borderRadius: '8px',
-                        padding: '0.50rem 0.95rem',
-                        boxShadow: '0 6px 14px rgba(0,0,0,0.12)',
-                        cursor: 'pointer',
-                        marginTop: '8px',
-                        display: 'inline-block'
-                      });
-        
-                      // hover effect
-                      btn.addEventListener('mouseenter', () => btn.style.backgroundColor = '#2c8c47');
-                      btn.addEventListener('mouseleave', () => btn.style.backgroundColor = '#34A853');
-        
-                      // click forwards to native submit
-                      btn.addEventListener('click', () => {
-                        try {
-                          // trigger click on native submit
-                          native.click();
-                        } catch(e) {
-                          // fallback: dispatch a submit event on the form
-                          const evt = new Event('submit', { bubbles: true, cancelable: true });
-                          form.dispatchEvent(evt);
-                        }
-                      });
-        
-                      // place our button just after the native button
-                      native.parentNode.insertBefore(btn, native.nextSibling);
-                    }
-        
-                    form.__gdg_replaced = true;
-                  });
-                } catch (e) {
-                  console && console.log && console.log('installCustomRegisterBtn error', e);
-                }
-              }
-        
-              // initial install + observe DOM changes (Streamlit re-renders widgets often)
-              installCustomRegisterBtn();
-              const mo = new MutationObserver(installCustomRegisterBtn);
-              mo.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
-        
-              // periodic attempt as extra safety
-              setInterval(installCustomRegisterBtn, 900);
-            })();
-            </script>
-            """,
-            unsafe_allow_html=True,
-        )
-      
     name = st.text_input("Full Name")
     email = st.text_input("Email")
     college = st.text_input("College / Organization")
     interest = st.selectbox("Interest Area", ["Open Source", "Docs & Community", "Frontend", "Backend", "DevOps", "Other"])
     submitted = st.form_submit_button("Register")
+    st.markdown("""
+    <style>
+    /* Target the first button (you can make it more specific if needed) */
+    div.stButton > button:first-child {
+        background-color: #28a745;  /* Green color */
+        color: white;
+        font-weight: bold;
+        border-radius: 8px;
+        height: 40px;
+        width: 150px;
+    }
+div.stButton > button:hover {
+    background-color: #218838;  /* Darker green on hover */
+}
+</style>
+""", unsafe_allow_html=True)
+
     
     if submitted:
         if not (name and email and college):
@@ -374,6 +308,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

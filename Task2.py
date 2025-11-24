@@ -7,7 +7,7 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from google.oauth2.service_account import Credentials
 
-st.set_page_config(page_title="Hacktoberfest @ GDG Galgotias", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Hacktfest @ GDG Galgotias", layout="wide", initial_sidebar_state="collapsed")
 st.markdown(
     """
     <style>
@@ -40,13 +40,13 @@ with col_left:
                    -webkit-background-clip: text; color: transparent; font-size:2.4rem;">
             <img src="https://raw.githubusercontent.com/Dhruvdot7/GDGoC-GU-Task2/main/gdglogo.png" 
                  width="60" style="vertical-align:middle; margin-right:8px;">
-            Hacktoberfest @ GDG Galgotias
+            Hackfest @ GDG Galgotias
         </h1>
         <p style="margin:4px 0 14px 0; color: #6b7280;">
             Open-source contribution sprint • Learn Git • Make your first PR
         </p>
-        <p class="event-info">📅 Event Date: 1st October 2025</p>
-        <p class="event-info">🏆 Reward Ceremony: 5th October 2025</p>
+        <p class="event-info">📅 Event Date: 1st December 2025</p>
+        <p class="event-info">🏆 Reward Ceremony: 5th December 2025</p>
         """,
         unsafe_allow_html=True
     )
@@ -83,7 +83,7 @@ st.markdown(
 # -------------------------
 # Countdown
 # -------------------------
-event_date = datetime(2025, 10, 1, 10, 0, 0)  
+event_date = datetime(2025, 12, 1, 10, 0, 0)  
 now = datetime.now()
 remaining = event_date - now
 days = remaining.days
@@ -308,6 +308,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 

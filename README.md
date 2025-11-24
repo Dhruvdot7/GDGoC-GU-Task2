@@ -1,6 +1,6 @@
-# 🎉 Hacktoberfest Registration App  
+# 🎉 Hackfest Registration App  
 
-A simple **Streamlit web app** for managing Hacktoberfest registrations.  
+A simple **Streamlit web app** for managing Hackfest registrations.  
 This app allows users to register with their details and stores the data directly in **Google Sheets**.  
 
 ---
@@ -13,14 +13,14 @@ This app allows users to register with their details and stores the data directl
 - ✅ Data stored securely in Google Sheets  
 - ✅ Works with Google Service Account credentials  
 - ✅ Deployment-ready (Streamlit Cloud or local)  
-- ✅ Hacktoberfest-themed logo integration  
+- ✅ Hackfest-themed logo integration  
 
 ---
 
 ## 🛠️ Requirements
 - Python 3.9+  
 - Google Cloud Service Account (JSON credentials)  
-- A Google Sheet named **"Hacktoberfest Registrations"** (shared with the service account email)  
+- A Google Sheet named **"Hackfest Registrations"** (shared with the service account email)  
 
 ---
 
@@ -42,7 +42,7 @@ hacktoberfest-registration/
 Clone the repository:
 
 ```bash
-git clone https://github.com/<your-username>/hacktoberfest-registration.git
+git clone https://github.com/Dhruvdot7/GDGoC-GU-Task2.git
 cd hacktoberfest-registration
 ```
 

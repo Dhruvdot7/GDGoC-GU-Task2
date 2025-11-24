@@ -179,7 +179,7 @@ st.write("---")
 # Registration Form
 # -------------------------
 
-st.subheader("📝 Register for Hacktoberfest (GDG Galgotias)")
+st.subheader("📝 Register for Hackfest (GDG Galgotias)")
 
 # Google Sheets Setup
 # Define scope
@@ -308,6 +308,7 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
+
 
 
 
